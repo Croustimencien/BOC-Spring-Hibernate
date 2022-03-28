@@ -23,6 +23,11 @@ public class Student {
             mappedBy = "student")
     private School school; // What type of school (Learn It, Sup de Com', etc..).
 
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "student")
+    private City city;
+
     public Student() {
     }
 
@@ -73,4 +78,11 @@ public class Student {
         this.school = school;
     }
 
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 }

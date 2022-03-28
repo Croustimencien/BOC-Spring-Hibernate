@@ -3,7 +3,6 @@ package com.school.BOC.dto.mapper;
 import com.school.BOC.dto.model.StudentDto;
 import com.school.BOC.model.Student;
 
-import java.util.Date;
 
 public class StudentMapper {
     public static Student toStudent(StudentDto studentDto) {

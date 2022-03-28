@@ -5,23 +5,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity // To specify our class as table in DB
-@Table(name = "schools") // To customize table name
+@Table(name = "citys") // To customize table name
 
-public class School {
+public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
+    private String nameCity;
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
-    public School(){
+    public City(){}
 
+    public City(long id, String nameCity) {
+        this.id = id;
+        this.nameCity = nameCity;
     }
 
     public long getId() {
@@ -32,12 +35,12 @@ public class School {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameCity() {
+        return nameCity;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameCity(String nameCity) {
+        this.nameCity = nameCity;
     }
 
     public Student getStudent() {
